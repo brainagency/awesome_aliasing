@@ -1,4 +1,4 @@
-module AwesomeImporting
+module AwesomeAliasing
   #
   # An exception which will be trown if collision checking is strict and collision has been occured
   #

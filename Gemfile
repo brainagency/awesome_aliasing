@@ -1,4 +1,4 @@
 source 'https://rubygems.org'
 
-# Specify your gem's dependencies in awesome_importing.gemspec
+# Specify your gem's dependencies in awesome_aliasing.gemspec
 gemspec

@@ -20,11 +20,8 @@ module AwesomeImporting
 
     def _importing_collision_checking(mc_name)
       Object.const_get mc_name
-      if AwesomeImporting.config.strict_collision_checking
-        raise AwesomeImporting::NameAlreadyTaken, mc_name
-      else
-        # Rails.logger.warn "Trying to import `#{module_or_class.name}` as `#{mc_name}`, but there is already an object with a given name!"
-      end
+      AwesomeImporting.config.logger.warn "A constant name `#{mc_name}` is already taken!"
+      raise AwesomeImporting::NameAlreadyTaken, mc_name if AwesomeImporting.config.strict_collision_checking
     rescue ::NameError
     end
 

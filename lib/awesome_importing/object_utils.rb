@@ -11,12 +11,20 @@ module AwesomeImporting
     # @raise AwesomeImporting::NameAlreadyTaken when collision has been occured and
     #   collision checking is strict
     def importing(module_or_class, as: nil)
-      mc_name = as || _importing_demodulize(module_or_class.name)
+      mc_name = _importing_resolve_target_name(as, module_or_class.name)
       _importing_collision_checking(mc_name)
-      Object.const_set mc_name, module_or_class
+      _importing_define_const(mc_name, module_or_class)
     end
 
     private
+
+    def _importing_resolve_target_name(custom, mc_name)
+      custom || _importing_demodulize(mc_name)
+    end
+
+    def _importing_demodulize(name)
+      name.split("::").last
+    end
 
     def _importing_collision_checking(mc_name)
       Object.const_get mc_name
@@ -25,8 +33,8 @@ module AwesomeImporting
     rescue ::NameError
     end
 
-    def _importing_demodulize(name)
-      name.split("::").last
+    def _importing_define_const(name, module_or_class)
+      Object.const_set name, module_or_class
     end
   end
 end

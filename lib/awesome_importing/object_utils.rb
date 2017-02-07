@@ -1,4 +1,7 @@
 module AwesomeImporting
+  #
+  # Provides an extension for an `Object` class
+  #
   module ObjectUtils
     # Imports module or class in a current context with a given name.
     # If a name is not spicified, the demodulized name of a module or class will be used.

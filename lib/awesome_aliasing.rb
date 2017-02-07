@@ -8,7 +8,7 @@ module AwesomeAliasing
   # Provides config object to configure AwesomeAliasing library
   #
   # @return [AwesomeAliasing::Config]
-  def self.config(&block)
+  def self.config(&_block)
     @_config ||= Config.new
     block_given? ? yield(@_config) : @_config
   end

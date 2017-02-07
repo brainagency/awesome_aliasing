@@ -28,7 +28,7 @@ module AwesomeAliasing
       #
       # @param message [String] - A message which will be printed as a warning one
       def warn(message)
-        puts "[WARN] message"
+        puts "[WARN] #{message}"
       end
     end
   end

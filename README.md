@@ -2,9 +2,37 @@
 
 [![Code Climate](https://codeclimate.com/github/brainagency/awesome_aliasing/badges/gpa.svg)](https://codeclimate.com/github/brainagency/awesome_aliasing)
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/awesome_aliasing`. To experiment with that code, run `bin/console` for an interactive prompt.
+Helps you to avoid the usages of long namespaces when you use some class inside another one.
+Actually this approach (I mean which gem provides) isn't so good and could be doubted. But it is a
+result of a small experiment and as a result of a fun hacking session with my legacy code base you
+see this gem.
 
-TODO: Delete this and the text above, and describe your gem
+Mostly an idea is borrowed from Elixir language, when instead writing like this:
+
+```elixir
+defmodule MyModuleB do
+  def call do
+    A.Very.Long.Namespace.MyModuleA.call
+  end
+end
+```
+
+you can write just like this:
+
+```elixir
+defmodule MyModuleB do
+  alias A.Very.Long.Namespace.MyModuleA
+
+  def call do
+    MyModuleA.call
+  end
+end
+```
+
+And code in the second example has some benefits:
+
+* consumer's function code is more readable.
+* at now consumer's module has a list of dependencies.
 
 ## Installation
 
@@ -24,17 +52,53 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+For example, we have such class definition:
 
-## Development
+```ruby
+module Api
+  module V1
+    module Pages
+      class IndexOperation
+        def call
+          #...
+        end
+      end
+    end
+  end
+end
+```
 
-After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake spec` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
+And this class is used inside an appropriate controller:
 
-To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and tags, and push the `.gem` file to [rubygems.org](https://rubygems.org).
+```ruby
+class PagesController < ...
+  def index
+    operation_result = Api::V1::Pages::IndexOperation.call
+    #...
+  end
+end
+```
+
+But with this gem you can rewrite the above example like this:
+
+```ruby
+aliasing Api::V1::Pages::IndexOperation
+
+class PagesController < ...
+  def index
+    operation_result = IndexOperation.call
+    #...
+  end
+end
+```
+
+and that's it.
+
+Also a very good point to see all available behaviours is to observe `spec/awesome_aliasing_spec.rb` file.
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/awesome_aliasing. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
+Bug reports and pull requests are welcome on GitHub at https://github.com/brainagency/awesome_aliasing. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
 
 
 ## License

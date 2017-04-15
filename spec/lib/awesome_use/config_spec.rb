@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe AwesomeAliasing::Config do
+describe AwesomeUse::Config do
   it { is_expected.to respond_to :strict_collision_checking }
   it { is_expected.to respond_to :strict_collision_checking= }
 

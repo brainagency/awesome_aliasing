@@ -1,17 +1,17 @@
 # coding: utf-8
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'awesome_aliasing/version'
+require 'awesome_use/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = "awesome_aliasing"
-  spec.version       = AwesomeAliasing::VERSION
+  spec.name          = "awesome_use"
+  spec.version       = AwesomeUse::VERSION
   spec.authors       = ["Sergey Gernyak"]
   spec.email         = ["sergeg1990@gmail.com"]
 
   spec.summary       = %q{Provides ability to specify at the top a dependencies of current class, module, etc.}
   spec.description   = spec.summary
-  spec.homepage      = "https://github.com/brainagency/awesome_aliasing"
+  spec.homepage      = "https://github.com/brainagency/awesome_use"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files -z`.split("\x0").reject { |f| f.match(%r{^(test|spec|features)/}) }

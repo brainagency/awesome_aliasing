@@ -1,15 +1,15 @@
-module AwesomeAliasing
+module AwesomeUse
   #
-  # Config object for an AwesomeAliasing library
+  # Config object for an AwesomeUse library
   #
   class Config
     # Specifies collision checking either strict or not. 
-    # If yes a `AwesomeAliasing::NameAlreadyTaken` exception will be thrown.
+    # If yes a `AwesomeUse::NameAlreadyTaken` exception will be thrown.
     # And if not - just a warning message will be written to the logs.
     attr_accessor :strict_collision_checking
 
     # Specifies logger of a library.
-    # By default `AwesomeAliasing::Config::PutsLogger` is used.
+    # By default `AwesomeUse::Config::PutsLogger` is used.
     attr_accessor :logger
 
     # Initializes new config object.

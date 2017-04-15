@@ -1,6 +1,6 @@
-# AwesomeAliasing
+# AwesomeUse
 
-[![Code Climate](https://codeclimate.com/github/brainagency/awesome_aliasing/badges/gpa.svg)](https://codeclimate.com/github/brainagency/awesome_aliasing)
+[![Code Climate](https://codeclimate.com/github/brainagency/awesome_use/badges/gpa.svg)](https://codeclimate.com/github/brainagency/awesome_use)
 
 Helps you to avoid the usages of long namespaces when you use some class inside another one.
 Actually this approach (I mean which gem provides) isn't so good and could be doubted. But it is a
@@ -39,7 +39,7 @@ And code in the second example has some benefits:
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'awesome_aliasing'
+gem 'awesome_use'
 ```
 
 And then execute:
@@ -48,7 +48,7 @@ And then execute:
 
 Or install it yourself as:
 
-    $ gem install awesome_aliasing
+    $ gem install awesome_use
 
 ## Usage
 
@@ -82,7 +82,7 @@ end
 But with this gem you can rewrite the above example like this:
 
 ```ruby
-aliasing Api::V1::Pages::IndexOperation
+use Api::V1::Pages::IndexOperation
 
 class PagesController < ...
   def index
@@ -94,11 +94,11 @@ end
 
 and that's it.
 
-Also a very good point to see all available behaviours is to observe `spec/awesome_aliasing_spec.rb` file.
+Also a very good point to see all available behaviours is to observe `spec/awesome_use_spec.rb` file.
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/brainagency/awesome_aliasing. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
+Bug reports and pull requests are welcome on GitHub at https://github.com/brainagency/awesome_use. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
 
 
 ## License

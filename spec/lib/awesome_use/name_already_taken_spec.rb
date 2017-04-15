@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe AwesomeAliasing::NameAlreadyTaken do
+describe AwesomeUse::NameAlreadyTaken do
   describe 'class' do
     subject { described_class }
 

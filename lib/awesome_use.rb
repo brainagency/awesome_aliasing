@@ -13,3 +13,5 @@ module AwesomeUse
     block_given? ? yield(@_config) : @_config
   end
 end
+
+BasicObject.send :include, AwesomeUse::ObjectUtils

@@ -25,7 +25,6 @@ describe AwesomeUse do
   describe 'use logic' do
     context 'WHEN use uniq class' do
       it 'does not raise an exception' do
-        self.send :include, AwesomeUse::ObjectUtils
         expect{
           use Api::V1::IndexOperation
         }.to_not raise_error
@@ -45,7 +44,6 @@ describe AwesomeUse do
         end
 
         it 'raises exception AwesomeUse::NameAlreadyTaken' do
-          self.send :include, AwesomeUse::ObjectUtils
           expect{
             use Api::V1::ShowOperation
           }.to raise_error(AwesomeUse::NameAlreadyTaken)
@@ -63,7 +61,6 @@ describe AwesomeUse do
         end
 
         it 'does not raises exception' do
-          self.send :include, AwesomeUse::ObjectUtils
           expect{
             use Api::V1::ShowOperation
           }.to_not raise_error
@@ -82,7 +79,6 @@ describe AwesomeUse do
         end
 
         it 'does not raises exception', :focus do
-          self.send :include, AwesomeUse::ObjectUtils
           expect{
             use Api::V1::ShowOperation, as: "MyShowOperation"
           }.to_not raise_error
